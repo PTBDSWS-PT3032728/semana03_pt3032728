@@ -1,4 +1,17 @@
 {% extends "base.html" %}
-{% block body %}
-<h1>Hello, World!</h1>
+
+{% block header%}
+    {% block navbar %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% block page_content %}
+        <h1 class = "titulo">Hello World!</h1>
+        <p>The local data and time is {{moment(current_time).format('LLL') }}.</p>
+        <p>That was {{moment(current_time).fromNow(refresh=True) }}</p>
+    {% endblock %}
+</div>
 {% endblock %}
